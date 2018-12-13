@@ -1,0 +1,17 @@
+<!--pages/custom/header/header.wxml-->
+<!-- <view class="inner">
+  <slot name="before"></slot>
+  <view>{{innerText}}</view>
+  <slot name="after"></slot>
+</view>
+<slot name="last"></slot>
+<view class="my-class">这段文本的颜色由组件外的 class 决定</view> -->
+
+<swiper indicator-dots="{{indicatorDots}}"
+  interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{tabs}}">
+    <swiper-item>
+      <view>{{item}}</view>
+    </swiper-item>
+  </block>
+</swiper>

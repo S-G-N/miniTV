@@ -1,0 +1,15 @@
+<!--pages/login/login.wxml-->
+<view>
+  <text class="iconfont icon-facebook-fill logo themeColor-font"></text>
+</view>
+<view class='inputBox'>
+  <input name='account' class='account themeColor-font' maxlength="10" placeholder="输入邮箱/手机号" placeholder-style="color:#ccc" auto-focus bindinput='inputAccount' />
+</view>
+<view class='inputBox inputBox-pwd'>
+  <input name='password' class='password themeColor-font' maxlength="10" placeholder="输入密码" password placeholder-style="color:#ccc" bindinput='inputPassword' />
+</view>
+<text class='tip themeColor-font' we:if="{{tipText}}">{{tipText}}</text>
+<view class='btnBox'>
+  <button class='btn btn-login themeColor-bg' bindtap='login'disabled='{{loginBtnAvailable}}'>登录</button>
+  <button class='btn btn-help themeColor-font themeColor-border'>寻求帮助</button>
+</view>

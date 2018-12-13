@@ -1,0 +1,22 @@
+/* pages/custom/popular/popular.wxss */
+.popular{
+  padding:20rpx 40rpx 10rpx 40rpx;
+  width: 750rpx;
+  box-sizing: border-box;
+}
+.categoryTitle{
+  display: inline-block;
+  width: 750rpx;
+  font-size: 32rpx;
+  height:45rpx;
+  line-height: 45rpx;
+  color: #666;
+  font-weight: 700;
+  margin-bottom: 30rpx;
+}
+.component-horizontal{
+  display: inline-block;
+}
+.component-horizontal:nth-child(2n-1){
+  margin-left: 20rpx
+}

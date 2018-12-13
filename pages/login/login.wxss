@@ -1,0 +1,58 @@
+/* pages/login/login.wxss */
+@import "../custom/wxss/common.wxss";
+.logo{
+  font-size:50px;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  padding:200rpx 0 70rpx 0;
+  box-sizing:border-box;
+}
+.inputBox{
+  width:  600rpx;
+  height: 60rpx;
+  margin-left: 72rpx;
+  margin-bottom: 67rpx;
+}
+.inputBox-pwd{
+  margin-bottom: 25.7rpx;
+}
+.account,.password{
+  border-bottom:2rpx solid #DDDDDD;
+  width:  600rpx;
+  height: 60rpx;
+  font-size: 40rpx;
+  line-height: 60rpx;
+  padding-bottom: 10rpx;
+}
+.tip{
+  margin-left: 72rpx;
+}
+button::after {
+  border: 0;
+} 
+.btnBox{
+  width: 600rpx;
+  height: 206rpx;
+  margin-left: 72rpx;
+  margin-top: 270rpx
+}
+.btn{
+  width: 600rpx;
+  height: 88rpx;
+  font-size: 40rpx;
+  line-height: 88rpx;
+  border-radius: 18rpx;
+  box-sizing: border-box;
+}
+.btn-login{
+  color:#ffffff;
+  margin-bottom: 30rpx;
+  border: 2rpx solid #DDDDDD;
+}
+.btn-help{
+  background: #fff
+}
+

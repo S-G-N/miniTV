@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/home/home",
+    "pages/custom/banner/mainBanner/mainBanner"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#blue",
+    "navigationBarTitleText": "iTalkBB",
+    "navigationBarTextStyle": "white",
+    "navigationStyle":"custom",
+    "backgroundColor":"#black",
+    "backgroundColorTop":"#eeeeee",
+    "backgroundColorBottom": "#eeeeee",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance":50
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "connectSocket": 20000,
+    "uploadFile": 20000,
+    "downloadFile": 20000
+  },
+  "debug":true,
+  "resizable": true
+
+}

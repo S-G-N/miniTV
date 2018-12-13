@@ -1,0 +1,7 @@
+/* pages/home/home.wxss */
+.search{
+  height: 284rpx;
+}
+.scale{
+  transform: scaleX(10,10)
+}

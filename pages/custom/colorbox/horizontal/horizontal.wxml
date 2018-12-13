@@ -1,0 +1,6 @@
+<!--pages/custom/colorbox/horizontal/horizontal.wxml-->
+<view class='horizontal' targetData = '{{dataHorizontal.target}}'>
+<image class='img' src='{{dataHorizontal.picture}}'></image>
+<text class='title'>{{dataHorizontal.target.name}}</text>
+<text class='describe'>{{dataHorizontal.recommend}}</text>
+</view>

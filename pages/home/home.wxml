@@ -1,0 +1,10 @@
+<!--pages/home/home.wxml-->
+<view>
+  <component-mainBanner dataBanner="{{bannerData}}" prop-a="{{dataFieldA}}" prop-b="{{dataFieldB}}" bind:getBannerTop='getBannerTop'>
+  </component-mainBanner>
+</view>
+<component-nav></component-nav>
+<component-search class='search scale {{isscaleH?"scale":""}}' id= 'search' bind:getSearchParam='getSearchParam' ></component-search>
+<component-popular wx:for="{{cardData.group_data}}" wx:key="group_data" wx:for-item="item" wx:for-index="itemIdx" dataPopular ="{{item}}"></component-popular>
+
+

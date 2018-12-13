@@ -1,0 +1,12 @@
+/**index.wxss**/
+@import "../custom/wxss/common.wxss";
+
+.welcome {
+  margin-top: 200px;
+}
+
+/* logo样式 */
+.logo{
+  font-size:50px;
+  
+}

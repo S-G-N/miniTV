@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "component-horizontal": "../colorbox/horizontal/horizontal"
+  }
+}

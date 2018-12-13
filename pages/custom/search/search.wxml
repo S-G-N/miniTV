@@ -1,0 +1,7 @@
+<!--pages/custom/search/search.wxml-->
+<view class='search' id='search'>
+  <view class='inputContainer' id='inputContainer'>
+    <input class='input'></input>
+    <view class='searchIcon'></view>
+  </view>
+</view>

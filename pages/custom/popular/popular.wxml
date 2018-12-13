@@ -1,0 +1,5 @@
+<!--pages/custom/popular/popular.wxml-->
+<view class='popular'>
+  <text class='categoryTitle'>{{dataPopular.group_name}}</text>
+  <component-horizontal class='component-horizontal' wx:for="{{dataPopular.card_data}}" wx:key="popularData" wx:for-item="item" wx:for-index="itemIdx" dataHorizontal = "{{item}}"></component-horizontal>
+</view>

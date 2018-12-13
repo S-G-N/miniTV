@@ -1,0 +1,40 @@
+/* pages/custom/nav/nav.wxss */
+@import "../wxss/common.wxss";
+.navContainer{
+  position: fixed;
+  left: 0;
+  top:110rpx;
+  /* padding-top: 110rpx; */
+  width:100%;
+  height:48rpx;
+  line-height: 48rpx;
+  font-size: 0;
+  z-index: 10;
+}
+.navIcon{
+  display: inline-block;
+  width: 112rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color:#ccc;
+}
+.nav{
+  display: inline-block;
+  width: 599rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 28rpx;
+  white-space: nowrap;
+  overflow: hidden
+}
+.li{
+  display: inline-block;
+  width: auto;
+  height: 48rpx;
+  line-height: 48rpx;
+  margin-left: 31rpx;
+  font-size: 28rpx;
+  color:#ccc;
+}

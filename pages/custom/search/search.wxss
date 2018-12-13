@@ -1,0 +1,30 @@
+/* pages/custom/search/search.wxss */
+.search{
+  position: fixed;
+  height: 284rpx;
+  width: 750rpx;
+  top: 0rpx;
+  background:linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0)), no-repeat center;
+  z-index: 5;
+}
+.inputContainer{
+  height: 74prx;
+  width: 670rpx;
+  margin: 185rpx 0 0 40rpx;
+  border-radius: 100rpx;
+  background: rgba(255,255,255,0.3)
+}
+.input{
+  height: 74prx;
+  width: 578rpx;
+  display: inline-block;
+  padding-left: 30rpx;
+  box-sizing: border-box
+}
+.searchIcon{
+  display: inline-block;
+  height: 74prx;
+  width: 90rpx;
+  text-align: center;
+  background: pink
+}

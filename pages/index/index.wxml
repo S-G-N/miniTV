@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+<text class="iconfont icon-facebook-fill logo themeColor-font"></text>
+  <view class="welcome themeColor-font">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>

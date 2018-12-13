@@ -1,0 +1,36 @@
+<!--pages/custom/banner/mainBanner.wxml-->
+<view class="swiper">
+<!-- main banner 滑块 -->
+  <swiper current="{{currentIndex}}" class="swiper-box-main" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px" indicator-color="{{indicatorColor}}" bindanimationfinish='swiperChange'>
+    <block wx:for="{{dataBanner}}" wx:key="dataBanner" wx:for-item="item" wx:for-index="itemIdx">
+      <swiper-item>
+        <view class="swiper-item">
+          <image class="img" src='{{item.picture}}'></image>
+        </view>
+        <view class='imgShade'></view>
+      </swiper-item>
+    </block>
+  </swiper>
+  
+
+  <!-- 浮动swiper -->
+<swiper current="{{currentIndex}}" class="swiper-box-secondary" id='swiper-box-secondary' indicator-dots="{{indicatorDots}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{300}}" previous-margin="95rpx" next-margin="95rpx" indicator-color="{{indicatorColor}}" bindanimationfinish='swiperChange'>
+    <block wx:for="{{dataBanner}}" wx:key="*this" class="block">
+      <swiper-item class="swiper-box-secondary-item">
+        <image class="img" src='{{item.picture}}'></image>
+        <view class="swiper-box-secondary-view">
+        <view class="title">{{item.target.name}}</view>
+        <view class="content">{{item.recommend}}</view> 
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!--重置小圆点的样式  -->
+  <view class="dots">
+    <block wx:for="{{dataBanner}}"  wx:key="*this">
+      <view class="dot{{index == currentIndex ? ' active' : ''}}"></view>
+    </block>
+  </view>
+</view>
+

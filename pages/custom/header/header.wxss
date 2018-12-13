@@ -1,0 +1,8 @@
+/* pages/custom/header/header.wxss */
+.inner {
+  color: red;
+}
+/* 会被类覆盖 */
+:host {
+  color: yellow;
+}

@@ -1,0 +1,31 @@
+/* pages/custom/colorbox/horizontal/horizontal.wxss */
+.horizontal{
+  width: 325rpx;
+}
+.img{
+  width: 325rpx;
+  height: 180rpx;
+  border-radius: 20rpx;
+}
+.title{
+  display: inline-block;
+  width: 325rpx;
+  height: 32rpx;
+  font-size: 28rpx;
+  line-height: 32rpx;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  overflow: hidden;
+  color: #666;
+}
+.describe{
+  display: inline-block;
+  font-size: 24rpx;
+  color: #999;
+  width: 325rpx;
+  height: 33rpx;
+  margin-top: 9rpx;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  overflow: hidden;
+}
