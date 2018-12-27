@@ -3,7 +3,6 @@
   "usingComponents": {
     "component-mainBanner": "../custom/banner/mainBanner/mainBanner",
     "component-popular": "../custom/popular/popular",
-    "component-nav": "../custom/nav/nav",
-    "component-search": "../custom/search/search"
+    "component-nav": "../custom/nav/nav"
   }
 }

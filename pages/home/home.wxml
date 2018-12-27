@@ -1,10 +1,18 @@
 <!--pages/home/home.wxml-->
-<view>
+<view class='{{scaleRight?"scaleRight":"noScaleRight"}}' bindtap='cancelScaleRight'>
+  <view>
   <component-mainBanner dataBanner="{{bannerData}}" prop-a="{{dataFieldA}}" prop-b="{{dataFieldB}}" bind:getBannerTop='getBannerTop'>
   </component-mainBanner>
 </view>
-<component-nav></component-nav>
-<component-search class='search scale {{isscaleH?"scale":""}}' id= 'search' bind:getSearchParam='getSearchParam' ></component-search>
-<component-popular wx:for="{{cardData.group_data}}" wx:key="group_data" wx:for-item="item" wx:for-index="itemIdx" dataPopular ="{{item}}"></component-popular>
+<component-nav bind:showMine='showMinePage'></component-nav>
+<view class='searchContainer' id='searchContainer'>
+  <view class="search {{isMini?'searchShadow':''}}" id='search' style='height:{{searchH}}px' >
+    <view class='inputContainer' id='inputContainer'>
+      <view class='searchInput' id='searchInput' style='height:{{inputH}}px'></view>
+    </view>
+  </view>
+</view>
+<component-popular wx:for="{{cardData.group_data}}" wx:key="" wx:for-item="item" wx:for-index="itemIdx" dataPopular ="{{item}}"></component-popular>
+</view>
 
 

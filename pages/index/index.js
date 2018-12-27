@@ -24,12 +24,10 @@ Page({
       console.log(timeStart)
       console.log(lackTime)
       if (lackTime) {
-        setTimeout(() => {
-          console.error('initThen调用1')    
+        setTimeout(() => {  
           initThen(loginState)
         }, lackTime)
-      } else {   
-        console.error('initThen调用2')    
+      } else {    
         initThen(loginState)
       }
       function initThen(loginState) {

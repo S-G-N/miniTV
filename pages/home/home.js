@@ -4,12 +4,17 @@ var Epg = require('../../module/epg.js')
 Page({
   data: {
     bannerData:{},
-    searchComParam:{},
     bannerComTop:0,
     narrowStart:0, // 触发搜索框缩小时，页面向上滚动的距离
     narrowEnd: 0, // 搜索框缩小结束时，页面向上滚动的距离
-    navViewHeight:0,
-    scaleH: 0,
+    scrollH:0,// 伸缩的高度
+    searchH:0,
+    searchHeight:0,
+    inputHeight:0,
+    inputH: 0,
+    inputTop: 0,
+    isMini:false,
+    scaleRight:false,
     indicatorDots: false,
     vertical: false,
     autoplay: false,
@@ -36,16 +41,52 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    //创建节点选择器
+    var that = this
+    setTimeout(function(){
+      //创建节点选择器
+      const query = that.createSelectorQuery()
+      query.select('#search').boundingClientRect(function (res) {
+        console.log('search的高')
+      })
+      query.select('#searchInput').boundingClientRect(function (res) {
+        console.log('searchInput的高')
+      })
+      query.select('#searchContainer').boundingClientRect(function (res) {
+        console.log('searchContainer的高')
+        console.error(res)
+      })
+      query.select('#inputContainer').boundingClientRect(function (res) {
+        console.log('inputContainer的高')
+      })
+      query.selectViewport().scrollOffset()
+      query.exec(function (res) {
+        console.error(res)
+        console.error('searchContainer高：' + res[2].height)
+        console.error('searchInput上边：' + res[1].top)
+
+        that.setData({
+          inputTop: res[1].top,
+          inputHeight: res[3].height,// 通过获取container的高
+          inputH: res[3].height, // 动态绑定的高
+          searchHeight: res[2].height,// 通过获取container的高
+          searchH: res[2].height, // 动态绑定的高
+          scrollH: res[2].height - res[1].top,
+        })
+        if (that.data.bannerComTop) {
+          that.setData({
+            narrowStart: that.data.bannerComTop - that.data.inputTop - that.data.inputHeight,
+            narrowEnd: that.data.bannerComTop - that.data.inputTop
+          })
+        }
+      })
+    },300)
    
-    // console.log(this.data.searchComHeight)
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('' + this.route)
     var that = this
     Epg.getBanner((data) => {
       console.log(data)
@@ -108,17 +149,30 @@ Page({
    */
   onPageScroll: function (e) {
     // Do something when page scroll
-    console.log(e.scrollTop)
-    var scaleH = e.scrollTop - this.data.narrowStart
-    if (e.scrollTop > this.data.narrowStart && e.scrollTop < this.data.narrowEnd){
-      console.error(this.data.narrowStart)
-      console.error(e.scrollTop)
+    var H = this.data.inputHeight - (e.scrollTop - this.data.narrowStart)
+    var that = this
+    if (e.scrollTop >= this.data.narrowStart && e.scrollTop <this.data.narrowEnd){
+      var percent = (e.scrollTop - this.data.narrowStart )/ this.data.inputHeight
+      console.error(that.data.searchHeight)
+      console.error(that.data.scrollH)
 
+        this.setData({
+          inputH: that.data.inputHeight * (1 - percent),
+          searchH: that.data.searchHeight - that.data.scrollH *  percent,
+          isMini: false
+        })
+    } else if (e.scrollTop < this.data.narrowStart) {
       this.setData({
-        scaleH: scaleH
+        inputH: that.data.inputHeight,
+        searchH: that.data.searchHeight,
+        isMini: false
       })
-      
-      // transform: scaleX(scaleH);
+    } else if (e.scrollTop > this.data.narrowEnd) {
+      this.setData({
+        inputH: 0,
+        searchH: that.data.inputTop,
+        isMini:true
+      })
     }
   },
 
@@ -130,39 +184,39 @@ Page({
     console.log(item.pagePath)
     console.log(item.text)
   },
-  getSearchParam(param) {
-    console.log(param)
-
-    var that = this
-    // 已知banner组件高度时计算scrollH
-    if (this.data.bannerComTop) {
-      this.setData({
-        narrowStart: that.data.bannerComTop - param.detail.searchH,
-        narrowEnd: that.data.bannerComTop - param.detail.inputTop
-      
-      })
-    } else {
-      // 未知banner组件高度时赋值
-      this.setData({
-        searchComParam: param.detail
-      })
-    }
-  },
-  getBannerTop(t) {
-    console.log(t.detail)
+  getBannerTop(param) {
+    console.log(param.detail)
     var that = this
     // 已知搜索组件高度时计算scrollH
-    if (this.data.searchComHeight){
+    if (this.data.searchHeight){
+      console.log('right')
       this.setData({
-        narrowStart: t.detail - that.searchComParam.searchH,
-        narrowEnd: t.detail - that.searchComParam.inputTop
+        narrowStart: that.data.bannerComTop - that.data.inputTop - that.data.inputHeight,
+        narrowEnd: that.data.bannerComTop - that.data.inputTop
       })
     } else {
        // 未知搜索组件高度时赋值
       this.setData({
-        bannerComTop: t.detail
+        bannerComTop: param.detail
       })
     }
+  }, 
+  showMinePage(){
+    // 主页缩小， 显示"我的"
+    console.log('主页缩小显示"我的')
+    var that = this;
+    this.setData({
+      scaleRight: !that.data.scaleRight
+    })
+    // 绑定事件，点击还原
   },
-  
+  cancelScaleRight(){
+    console.log("触发了点击还原")
+    if (this.data.scaleRight){
+      this.setData({
+        scaleRight: false
+      })
+    }
+  }
+
 })

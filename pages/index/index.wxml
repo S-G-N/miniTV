@@ -1,7 +1,2 @@
 <!--index.wxml-->
-<view class="container">
-<text class="iconfont icon-facebook-fill logo themeColor-font"></text>
-  <view class="welcome themeColor-font">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view>
+<view class='container' style='background-image:url("http://192.168.1.109/nodesever/img/start-up.png")'></view>

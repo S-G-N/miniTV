@@ -4,19 +4,25 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    scale: Number
   },
 
   /**
    * 组件的初始数据
    */
   data: {
+    // scale: 2,
   },
   /**
    * 组件的方法列表
    */
   methods: {
 
+  },
+  tap2() {
+    // this.setData({
+    //   scale: 3
+    // })
   },
   lifetimes: {
     attached() {

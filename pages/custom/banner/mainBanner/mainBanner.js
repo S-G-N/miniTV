@@ -34,7 +34,6 @@ Component({
    */
   methods: {
     swiperChange: function (e) {
-      console.log(11)
       this.setData({
         currentIndex: e.detail.current
       })
@@ -42,17 +41,15 @@ Component({
   },
   ready() {
     // 在组件实例进入页面节点树时执行
-    console.error(555)
-    const query = this.createSelectorQuery()
     var that = this
-    query.select('#swiper-box-secondary').boundingClientRect(function (res) {
-      console.log(77887788)
-      console.log(res)
-      that.triggerEvent('getBannerTop', res.top)
-    })
-    query.selectViewport().scrollOffset()
-    query.exec(function (res) {
-      console.error(res)
-    })
+    setTimeout(function () {  
+      const query = that.createSelectorQuery()
+      query.select('#swiper-box-secondary').boundingClientRect(function (res) {
+        that.triggerEvent('getBannerTop', res.top)
+      })
+      query.selectViewport().scrollOffset()
+      query.exec(function (res) {
+      })
+    }, 300)
   }
 })

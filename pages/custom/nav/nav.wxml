@@ -1,6 +1,6 @@
 <!--pages/custom/nav/nav.wxml-->
 <view class='navContainer'>
-  <view class='navIcon iconfont icon-home'></view>
+  <view class='navIcon iconfont icon-home' catchtap='showMine'></view>
   <view class='nav'>
     <scroll-view class="scroll-view" scroll-x="true" style="width: 100%" scroll-with-animation="true">
       <block wx:for="{{background}}" wx:key="dataBanner" wx:for-item="item" wx:for-index="itemIdx">
